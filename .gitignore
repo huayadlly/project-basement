@@ -56,8 +56,9 @@ buildNumber.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .idea/
-target/
-jpa.iml
+target/*
+project-basement.iml
+
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -103,8 +104,27 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-.gitignore
-.idea/inspectionProfiles/
-target/generated-sources/
-target/generated-test-sources/
+.idea
 .idea/*
+.idea/misc.xml
+!MavenDemo/.gitignore
+!base/.gitignore
+*.iml
+MavenDemo/project-Maven.iml
+base/base.iml
+basement-root-pom.iml
+
+MavenDemo/src/test/
+base/src/test/
+
+### MVN ###
+.mvn
+base/.mvn
+MavenDemo/.mvn
+mvnw
+mvnw.cmd
+src/test/
+microservices/eureka-server/src/test/
+microservices/eureka-client/src/test/
+microservices/eureka-client2/src/test/
+microservices/service-ribbon/src/test/
