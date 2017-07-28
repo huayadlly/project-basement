@@ -1,3 +1,44 @@
 spring:
+  profiles:
+    active: development
   data:
     mongodb:
+      host: 127.0.0.1
+      database: book
+      username: bookAdmin
+      password: 123456
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/taike?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: 123456
+server:
+  port: 8755
+
+#---
+#spring:
+#  profiles: product
+#  data:
+#    mongodb:
+#      host: mongo.db.****.cn
+#      database: ****
+#      username: ****
+#      password: ****
+#  datasource:
+#      url: jdbc:mysql://192.168.0.100:3306/****?useUnicode=true&characterEncoding=utf8
+#      username: ****
+#      password: ****
+
+
+---
+spring:
+  profiles: development
+  data:
+    mongodb:
+      host: 127.0.0.1
+      database: book
+      username: bookAdmin
+      password: 123456
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/taike?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: 123456
