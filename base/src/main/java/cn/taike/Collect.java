@@ -2,10 +2,13 @@ package cn.taike;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.*;
 
 /**
@@ -55,10 +58,62 @@ public class Collect {
         System.out.println("StringUtils: " + equals);
     }
 
+    List<String> data = Lists.newArrayList();
+
+    public List<String> getData() {
+        return data;
+    }
+
+    public void setData(List<String> data) {
+        this.data = data;
+    }
+
+    public static void isEmpty() {
+        Collect collect = new Collect();
+        List<String> data = collect.getData();
+        System.out.println("WTF: " + data);
+
+        boolean notEmpty = CollectionUtils.isNotEmpty(collect.getData());
+        System.out.println("为空？: " + notEmpty);
+
+    }
+
+
+    public static List<User> testList(List<User> list) {
+        for (User user : list) {
+            Long id = user.getId();
+            String name = user.getName();
+
+            user.setStrId(String.valueOf(id));
+            user.setAddress("boxfish : " + name);
+        }
+        return list;
+    }
+
+    @Data
+    public static class User {
+        private Long id;
+        private String name;
+
+        private String strId;
+        private String address;
+
+    }
+
 
     public static void main(String[] args) {
 
-        sampleIsEmpty();
+//        sampleIsEmpty();
 
+//        isEmpty();
+
+        User user = new User();
+        user.setId(12L);
+        user.setName("HAHA");
+        User user2 = new User();
+        user2.setId(12L);
+        user2.setName("HAHA");
+        List<User> users = testList(Lists.newArrayList(user, user2));
+        System.out.println(users);
     }
 }
